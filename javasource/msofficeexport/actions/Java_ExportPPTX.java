@@ -35,6 +35,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.logging.ILogNode;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * --- POWERPOINT EXPORT ---
@@ -118,7 +119,7 @@ import com.mendix.logging.ILogNode;
  * 
  * • Icon credits: performance icons created by SeyfDesigner - Flaticon.
  */
-public class Java_ExportPPTX extends CustomJavaAction<IMendixObject>
+public class Java_ExportPPTX extends UserAction<IMendixObject>
 {
 	private final java.lang.String documentContentJson;
 	/** @deprecated use templatePptx.getMendixObject() instead. */

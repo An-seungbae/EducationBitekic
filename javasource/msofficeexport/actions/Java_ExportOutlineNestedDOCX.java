@@ -34,6 +34,7 @@ import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * --- WORD EXPORT (OUTLINE BASED, nested JSON structure) ---
@@ -194,7 +195,7 @@ import com.mendix.webui.CustomJavaAction;
  * 
  * • Icon credits: document icons created by Driss Lebbat - Flaticon.
  */
-public class Java_ExportOutlineNestedDOCX extends CustomJavaAction<IMendixObject>
+public class Java_ExportOutlineNestedDOCX extends UserAction<IMendixObject>
 {
 	/** @deprecated use templateDocx.getMendixObject() instead. */
 	@java.lang.Deprecated(forRemoval = true)

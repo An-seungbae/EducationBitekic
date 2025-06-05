@@ -29,6 +29,7 @@ import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
  * --- WORD EXPORT (PLACEHOLDERS BASED) ---
@@ -71,7 +72,7 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
  * 
  * • Icon credits: document icons created by Driss Lebbat - Flaticon.
  */
-public class Java_ExportPlaceholdersDOCX extends CustomJavaAction<IMendixObject>
+public class Java_ExportPlaceholdersDOCX extends UserAction<IMendixObject>
 {
 	private final java.lang.String documentContentJson;
 	/** @deprecated use templateDocx.getMendixObject() instead. */
