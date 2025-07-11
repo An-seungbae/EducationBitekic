@@ -1,0 +1,176 @@
+/*
+    M-datagrid is designed to be an easy to access tool which will give the developer the option to add sticky/compact columns.
+    Please do not make change in this document. You may make changes in m-datagrid-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, The Orange Force
+*/
+
+.mx-datagrid {
+    .mx-grid-content{
+        overflow-x: auto;
+    }
+    &.m-datagrid {
+        .mx-grid-content {
+            overflow-x: auto;
+
+            table {
+                min-width: 100%;
+            }
+        }
+
+        //Makes the First column sticky
+        &--sticky-first-column {
+            #{$m-datagrid-default-path} {
+                min-width: $m-datagrid-min-column-width;
+
+                &:nth-child(1) {
+                    background-color: $m-datagrid-bg;
+                    z-index: 2;
+                    position: sticky;
+                    left: 0;
+
+                    &::after {
+                        position: absolute;
+                        top: 0px;
+                        width: 4px;
+                        height: 100%;
+                        content: '';
+                        right: -2px;
+                        background: linear-gradient(to right, $m-datagrid-shadow-start, $m-datagrid-shadow-end);
+                    }
+                }
+            }
+        }
+
+        //Makes the last column sticky
+        &--sticky-last-column {
+            #{$m-datagrid-default-path} {
+                &:nth-last-child(1) {
+                    background: $m-datagrid-bg;
+                    z-index: 2;
+                    position: sticky;
+                    right: 0;
+
+                    &::after {
+                        position: absolute;
+                        top: 0px;
+                        width: 4px;
+                        height: 100%;
+                        content: '';
+                        left: -2px;
+                        background: linear-gradient(to left, $m-datagrid-shadow-start, $m-datagrid-shadow-end);
+                    }
+                }
+            }
+        }
+
+        //Instead of minimizing the content it will display the full content
+        &--full-content {
+            #{$m-datagrid-default-path} {
+
+                .mx-datagrid-data-wrapper,
+                .mx-datagrid-head-caption {
+                    display: -webkit-box;
+                    text-align: left;
+                    white-space: unset;
+                    word-break: break-word;
+                    -webkit-line-clamp: unset;
+                    -webkit-box-orient: vertical;
+                    text-overflow: ellipsis;
+                }
+
+                .mx-datagrid-sort-icon {
+                    position: relative;
+                    height: 100%;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                }
+            }
+        }
+
+        //A small loop for the line clamp option. Goes from 1 to 10.
+        @for $i from 1 through 10 {
+            &--line-clamp-#{$i} {
+                #{$m-datagrid-default-path} {
+
+                    .mx-datagrid-data-wrapper,
+                    .mx-datagrid-head-caption {
+
+                        -webkit-line-clamp: $i;
+                    }
+                }
+            }
+        }
+
+
+        &--compact {
+            #{$m-datagrid-default-path} {
+                min-width: $m-datagrid-compact-min-column-width;
+                font-size: $m-datagrid-compact-font-size;
+                padding: 2px 4px;
+                min-height: $m-datagrid-compact-min-column-height;
+                height: $m-datagrid-compact-min-column-height;
+            }
+        }
+    }
+}
+
+//Making sure that the striping will apply on the sticky columns
+.m-datagrid--sticky-first-column.datagrid-striped {
+    .mx-grid-content tbody tr:nth-child(odd) td:nth-child(1) {
+        background-color: $grid-bg-striped;
+    }
+}
+
+.m-datagrid--sticky-last-column.datagrid-striped {
+    .mx-grid-content tbody tr:nth-child(odd) td:nth-last-child(1) {
+        background-color: $grid-bg-striped;
+    }
+}
+
+//Adding borders to the sticky columns so they will always show their borders
+.m-datagrid--sticky-first-column.datagrid-bordered {
+    #{$m-datagrid-default-path} {
+
+        &:nth-child(1) {
+            border-right-width: 0px;
+
+            &::before {
+
+                position: absolute;
+                top: 0px;
+                width: 1px;
+                height: 100%;
+                content: '';
+                left: -1px;
+                background-color: $grid-border-color
+            }
+        }
+
+        &:nth-child(2) {
+            border-left-width: 0px;
+        }
+    }
+}
+
+.m-datagrid--sticky-last-column.datagrid-bordered {
+    #{$m-datagrid-default-path} {
+        &:nth-last-child(1) {
+            border-left-width: 0px;
+
+            &::before {
+                position: absolute;
+                top: 0px;
+                width: 1px;
+                height: 100%;
+                content: '';
+                right: -1px;
+                background-color: $grid-border-color
+            }
+        }
+        &:nth-last-child(2) {
+            border-right-width: 0px;
+        }
+    }
+}

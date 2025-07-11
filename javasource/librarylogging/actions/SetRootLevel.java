@@ -15,7 +15,6 @@ import org.apache.logging.log4j.core.LoggerContext;
 import org.apache.logging.log4j.core.config.AppenderRef;
 import org.apache.logging.log4j.core.config.Configuration;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import librarylogging.impl.MendixLog4jAppender;
 import com.mendix.systemwideinterfaces.core.UserAction;
 

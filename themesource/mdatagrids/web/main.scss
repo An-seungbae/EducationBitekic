@@ -1,0 +1,10 @@
+/*
+    M-material-inputs is designed to be an easy to access tool which transforms the default Mendix inputs with Material design inputs.
+    You may make changes here if your like. This is designed to work straight out of the box on default Mendix installations.
+
+    Author: Maurits de Koning-Hewitt, The Orange Force
+*/
+
+@import '../../../theme/web/custom-variables'; // Change this if your path is different
+
+@import 'm-datagrid/all'

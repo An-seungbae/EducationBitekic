@@ -1,0 +1,94 @@
+/*
+    M-datagrid is designed to be an easy to access tool which will give the developer the option to add sticky/compact columns.
+    You may make changes here if your like. This is designed to work straight out of the box.
+
+    Author: Maurits de Koning-Hewitt, The Orange Force
+    Version: 1.2.0
+*/
+
+//Datagrid variables
+
+// The Default background color for the datagrid. This is needed for sticky columns.
+$m-datagrid-bg: $bg-color;
+
+// Gives the column a min width. This is needed for the scrollbar generation.
+$m-datagrid-min-column-width: 100px;
+
+
+// Values for the compact view
+$m-datagrid-compact-min-column-height: 25px;
+$m-datagrid-compact-min-column-width: 25px;
+$m-datagrid-compact-font-size: $font-size-default;
+
+// Shadow colors for sticky columns
+$m-datagrid-shadow-start: rgba(0, 0, 0, 0.25);
+$m-datagrid-shadow-end: rgba(0, 0, 0, 0);
+
+// Advanced path setting. Only change if you know what you're doing.
+$m-datagrid-default-path: '.mx-grid-content colgroup col, .mx-grid-content colgroup td, .mx-grid-content colgroup th, .mx-grid-content thead tr col, .mx-grid-content thead tr td, .mx-grid-content thead tr th, .mx-grid-content tbody tr col, .mx-grid-content tbody tr td, .mx-grid-content tbody tr th,';
+
+
+
+//Datagrid2 variables
+
+// The Default background color for the datagrid. This is needed for sticky columns.
+$m-datagrid2-bg: $bg-color;
+
+// Gives the column a min width. This is needed for the scrollbar generation.
+$m-datagrid2-min-column-width-smallest: 50px;
+$m-datagrid2-min-column-width-smaller: 75px;
+$m-datagrid2-min-column-width-small: 100px;
+$m-datagrid2-min-column-width: 150px;
+$m-datagrid2-min-column-width-large: 200px;
+$m-datagrid2-min-column-width-larger: 300px;
+$m-datagrid2-min-column-width-largest: 400px;
+
+
+// Values for the compact view
+$m-datagrid2-compact-min-column-width: 25px;
+$m-datagrid2-compact-font-size: $font-size-default;
+
+// Shadow colors for sticky columns
+$m-datagrid2-shadow-start: rgba(0, 0, 0, 0.25);
+$m-datagrid2-shadow-end: rgba(0, 0, 0, 0);
+
+
+
+//Dynamic Datagrid variables
+
+// The Default background color for the datagrid. This is needed for sticky columns.
+$m-dynamic-datagrid-bg: $bg-color;
+
+// Gives the column a min width. This is needed for the scrollbar generation.
+$m-dynamic-datagrid-min-column-width-smallest: 50px;
+$m-dynamic-datagrid-min-column-width-smaller: 75px;
+$m-dynamic-datagrid-min-column-width-small: 100px;
+$m-dynamic-datagrid-min-column-width: 150px;
+$m-dynamic-datagrid-min-column-width-large: 200px;
+$m-dynamic-datagrid-min-column-width-larger: 300px;
+$m-dynamic-datagrid-min-column-width-largest: 400px;
+
+
+// Values for the compact view
+$m-dynamic-datagrid-compact-min-column-width: 25px;
+$m-dynamic-datagrid-compact-font-size: $font-size-default;
+
+// Shadow colors for sticky columns
+$m-dynamic-datagrid-shadow-start: rgba(0, 0, 0, 0.25);
+$m-dynamic-datagrid-shadow-end: rgba(0, 0, 0, 0);
+
+/*
+Copyright (c) 2025 Maurits de Koning-Hewitt.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES 
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) 
+HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/

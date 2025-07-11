@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        #parse ( "/templates/add-html-head-content.vm" )
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-color: #f2f2f2;
+            }
+            .login-container {
+                background-color: white;
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                width: 100%;
+                max-width: 400px;
+                text-align: center;
+            }
+            ul {
+                list-style-type: none;
+                padding: 0;
+                margin-top: 1.5rem;
+            }
+            ul li {
+                margin: 12px 0;
+            }
+            ul li a {
+                display: block;
+                padding: 12px 20px;
+                background-color: #0D47A1;
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+                text-align: center;
+                border: 2px solid transparent;
+                transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            }
+            ul li a:hover {
+                background-color: white;
+                color: #0D47A1;
+                border-color: #0D47A1;
+                text-decoration: none;
+            }
+            .btn {
+                display: inline-block;
+                padding: 12px 24px;
+                background-color: #0D47A1;
+                color: white;
+                border: 2px solid transparent;
+                border-radius: 6px;
+                text-decoration: none;
+                margin: 10px;
+                transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            }
+            .btn:hover {
+                background-color: white;
+                color: #0D47A1;
+                border-color: #0D47A1;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="login-container oidc-container">
+            <form id="loginForm" class="login-form">
+                <div class="login-logo"></div>
+                <ul>
+                    #foreach( $idp in $idpList )
+                        <li>
+                            <a href="${Url}$idp.Alias#if($idp.AcrValue)&acr=$idp.AcrValue#end" title="Login via $idp.Alias">
+                                Login via $idp.Alias
+                                #if($idp.AcrValue) with $idp.AcrValue #end
+                            </a>
+                        </li>
+                    #end
+                </ul>
+                #if($ApplicationLocation) <a href="${ApplicationLocation}" class="btn">Home</a>#end
+                #if($ApplicationSSOLocation) <a href="${ApplicationSSOLocation}" class="btn">Try Again</a>#end
+            </form>
+        </div>
+
+        <!--
+        <script src="../js/login_i18n.js"></script>
+        <script src="../js/login.js"></script>
+        -->
+        #parse ( "/templates/add-html-body-content.vm" )
+    </body>
+</html>

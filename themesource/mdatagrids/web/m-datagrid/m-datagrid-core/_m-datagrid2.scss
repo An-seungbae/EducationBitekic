@@ -1,0 +1,409 @@
+/*
+    M-datagrid is designed to be an easy to access tool which will give the developer the option to add sticky/compact columns.
+    Please do not make change in this document. You may make changes in m-datagrid-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, The Orange Force
+*/
+
+.widget-datagrid {
+    &.m-datagrid2 {
+        .table {
+            width: inherit;
+            max-width: inherit;
+            overflow-x: auto;
+        }
+
+        .widget-datagrid-grid-head, .widget-datagrid-grid-body{
+            grid-template-columns: repeat(minmax(150px, 1fr)) !important;
+            width: inherit !important;
+            max-width: 100%;
+            overflow-x: auto;
+
+            .tr .th:not(.column-selector),
+            .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width;
+            }
+
+            .tr .th.column-selector,
+            .tr .td.column-selector {
+                min-width: 50px;
+                justify-content: flex-end;
+            }
+        }
+
+        // Makes the First column sticky
+        &--sticky-first-column {
+
+            .tr .th:nth-child(1),
+            .tr .td:nth-child(1) {
+                background-color: $m-datagrid2-bg;
+                z-index: 2;
+                position: sticky;
+                left: 0;
+
+                &::after {
+                    position: absolute;
+                    top: 0px;
+                    width: 4px;
+                    height: 100%;
+                    content: '';
+                    right: -2px;
+                    background: linear-gradient(to right, $m-datagrid2-shadow-start, $m-datagrid2-shadow-end);
+                }
+            }
+        }
+
+        // Makes the last column sticky
+        &--sticky-last-column {
+
+            .tr .th:nth-last-child(1 of :not(.column-selector)),
+            .tr .td:nth-last-child(1 of :not(.column-selector)) {
+                background: $m-datagrid2-bg;
+                z-index: 2;
+                position: sticky;
+                right: 0px;
+
+                &::after {
+                    position: absolute;
+                    top: 0px;
+                    width: 4px;
+                    height: 100%;
+                    content: '';
+                    left: -2px;
+                    background: linear-gradient(to left, $m-datagrid2-shadow-start, $m-datagrid2-shadow-end);
+                }
+            }
+
+            // Makes the column selector visible on the last (sticky) column.
+            &:has(.th.column-selector) {
+
+                .table .widget-datagrid-grid-head .tr .th:nth-last-child(1 of :not(.column-selector)),
+                .table .widget-datagrid-grid-head .tr .td:nth-last-child(1 of :not(.column-selector)) {
+                    right: 34px;
+                    z-index: 3;
+
+                    .column-resizer {
+                        display: none;
+                    }
+                }
+
+                .table .widget-datagrid-grid-head .tr .th.column-selector,
+                .table .widget-datagrid-grid-head .tr .td.column-selector {
+                    position: sticky;
+                    right: 0px;
+                    min-width: 34px;
+                    width: 34px;
+                    z-index: 5;
+                }
+
+                .table .widget-datagrid-grid-head .tr .td.column-selector {
+                    background-color: $m-datagrid2-bg;
+                    z-index: 0;
+                }
+
+                .table .widget-datagrid-grid-head .tr.selected .td.column-selector {
+                    background-color: $grid-bg-selected;
+                }
+
+                .table .widget-datagrid-grid-head .tr .th.column-selector .column-selector-content {
+                    padding: 0px 4px 0px 0px;
+                }
+            }
+        }
+
+        // Makes the header sticky
+        &--sticky-header {
+            .table.widget-datagrid-grid {
+                max-height: 50vh;
+            }
+
+            .table .widget-datagrid-grid-head .tr .th{
+                position: sticky;
+            }
+
+            .table .widget-datagrid-grid-head .tr:nth-child(1) {
+                .th {
+                    z-index: 4;
+                    border-bottom: 1px solid $border-color-default;
+                    margin-bottom: -1px;
+                }
+
+                .th:nth-child(1),
+                .th:nth-last-child(1 of :not(.column-selector)) {
+                    z-index: 5 !important;
+                }
+            }
+        }
+
+        // Sets the datagrid height
+        @for $i from 1 through 10 {
+            &--#{$i * 10}vh .table.widget-datagrid-grid{
+                max-height: #{$i * 10}vh;
+            }
+        }
+
+        // Instead of minimizing the content it will display the full content
+        &--full-content {
+
+            .tr .th span,
+            .tr .td span {
+                display: -webkit-box;
+                text-align: left;
+                white-space: unset;
+                word-break: break-word;
+                -webkit-line-clamp: unset;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+            }
+        }
+
+        // A small loop for the line clamp option. Goes from 1 to 10.
+        @for $i from 1 through 10 {
+            &--line-clamp-#{$i} {
+
+                .tr .th span,
+                .tr .td span {
+
+                    -webkit-line-clamp: $i;
+
+                }
+            }
+        }
+
+        &--compact {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-datagrid2-compact-min-column-width;
+                font-size: $m-datagrid2-compact-font-size;
+                padding: 2px 4px;
+            }
+
+            &:has(.th.column-selector) {
+                .table .widget-datagrid-grid-head .tr .th.column-selector {
+                    padding: 2px;
+                }
+
+                .table .widget-datagrid-grid-head .tr .th.column-selector .column-selector-content {
+                    padding: 0px;
+                }
+            }
+        }
+
+        // Changes all columns width
+        &--column-size-smallest.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:not(.column-selector),
+            .table .widget-datagrid-grid-body .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width-smallest;
+            }
+        }
+
+        &--column-size-smaller.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:not(.column-selector),
+            .table .widget-datagrid-grid-body .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width-smaller;
+            }
+        }
+
+        &--column-size-small.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:not(.column-selector),
+            .table .widget-datagrid-grid-body .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width-small;
+            }
+        }
+
+        &--column-size-medium.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:not(.column-selector),
+            .table .widget-datagrid-grid-body .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width;
+            }
+        }
+
+        &--column-size-large.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:not(.column-selector),
+            .table .widget-datagrid-grid-body .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width-large;
+            }
+        }
+
+        &--column-size-larger.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:not(.column-selector),
+            .table .widget-datagrid-grid-body .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width-larger;
+            }
+        }
+
+        &--column-size-largest.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:not(.column-selector),
+            .table .widget-datagrid-grid-body .tr .td:not(.column-selector) {
+                min-width: $m-datagrid2-min-column-width-largest;
+            }
+        }
+
+        // Change sticky columns width
+
+        // First column width
+        &--sticky-first-column-size-smallest.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-datagrid2-min-column-width-smallest;
+            }
+        }
+
+        &--sticky-first-column-size-smaller.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-datagrid2-min-column-width-smaller;
+            }
+        }
+
+        &--sticky-first-column-size-small.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-datagrid2-min-column-width-small;
+            }
+        }
+
+        &--sticky-first-column-size-medium.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-datagrid2-min-column-width;
+            }
+        }
+
+        &--sticky-first-column-size-large.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-datagrid2-min-column-width-large;
+            }
+        }
+
+        &--sticky-first-column-size-larger.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-datagrid2-min-column-width-larger;
+            }
+        }
+
+        &--sticky-first-column-size-largest.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-datagrid2-min-column-width-largest;
+            }
+        }
+
+        // Last column width
+        &--sticky-last-column-size-smallest.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-datagrid2-min-column-width-smallest;
+            }
+        }
+
+        &--sticky-last-column-size-smaller.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-datagrid2-min-column-width-smaller;
+            }
+        }
+
+        &--sticky-last-column-size-small.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-datagrid2-min-column-width-small;
+            }
+        }
+
+        &--sticky-last-column-size-medium.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-datagrid2-min-column-width;
+            }
+        }
+
+        &--sticky-last-column-size-large.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-datagrid2-min-column-width-large;
+            }
+        }
+
+        &--sticky-last-column-size-larger.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-datagrid2-min-column-width-larger;
+            }
+        }
+
+        &--sticky-last-column-size-largest.m-datagrid2 {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-datagrid2-min-column-width-largest;
+            }
+        }
+    }
+}
+
+// Making sure that the striping will apply on the sticky columns
+.m-datagrid2--sticky-first-column.table-striped.widget-datagrid {
+    .tr:nth-child(odd) .td:nth-child(1) {
+        background-color: $grid-bg-striped;
+    }
+}
+
+.m-datagrid2--sticky-last-column.table-striped.widget-datagrid {
+    .tr:nth-child(odd) .td:nth-last-child(1) {
+        background-color: $grid-bg-striped;
+    }
+}
+
+// Removing borders to prevent dubplication of borders due to the shadow of the sticky columns
+.m-datagrid2--sticky-first-column.table-bordered-all.widget-datagrid,
+.m-datagrid2--sticky-first-column.table-bordered-vertical.widget-datagrid {
+
+    .tr .th:nth-child(1),
+    .tr .td:nth-child(1) {
+        border-right-width: 0px;
+    }
+
+    .tr .th:nth-child(2),
+    .tr .td:nth-child(2) {
+        border-left-width: 0px;
+    }
+}
+
+.m-datagrid2--sticky-last-column.table-bordered-all.widget-datagrid,
+.m-datagrid2--sticky-last-column.table-bordered-vertical.widget-datagrid {
+
+    .tr .th:nth-last-child(1),
+    .tr .td:nth-last-child(1) {
+        border-left-width: 0px;
+
+    }
+
+    .tr .th:nth-last-child(2),
+    .tr .td:nth-last-child(2) {
+        border-right-width: 0px;
+    }
+}

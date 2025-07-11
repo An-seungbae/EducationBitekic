@@ -1,0 +1,552 @@
+{
+    "DataGrid": [
+        {
+            "name": "Sticky columns",
+            "type": "Dropdown",
+            "description": "Makes the first or/and last column sticky while scrolling. NOTE: Please use fixed column sizes for this.",
+            "options": [
+                {
+                    "name": "Sticky first column",
+                    "class": "m-datagrid m-datagrid--sticky-first-column"
+                },
+                {
+                    "name": "Sticky last column",
+                    "class": "m-datagrid m-datagrid--sticky-last-column"
+                },
+                {
+                    "name": "Sticky first and last column",
+                    "class": "m-datagrid m-datagrid--sticky-first-column m-datagrid--sticky-last-column"
+                }
+            ]
+        },
+        {
+            "name": "Display full content",
+            "type": "Dropdown",
+            "description": "Allows you to display the full content/text of a column. You can also limit the amount of content/text to a max number of lines.",
+            "options": [
+                {
+                    "name": "Full content (no limits)",
+                    "class": "m-datagrid m-datagrid--full-content"
+                },
+                {
+                    "name": "1 line of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-1"
+                },
+                {
+                    "name": "2 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-2"
+                },
+                {
+                    "name": "3 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-3"
+                },
+                {
+                    "name": "4 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-4"
+                },
+                {
+                    "name": "5 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-5"
+                },
+                {
+                    "name": "6 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-6"
+                },
+                {
+                    "name": "7 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-7"
+                },
+                {
+                    "name": "8 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-8"
+                },
+                {
+                    "name": "9 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-9"
+                },
+                {
+                    "name": "10 lines of content/text",
+                    "class": "m-datagrid m-datagrid--full-content m-datagrid--line-clamp-10"
+                }
+            ]
+        },
+        {
+            "name": "Compact view",
+            "type": "Toggle",
+            "description": "Makes the grid compact.",
+            "class": "m-datagrid m-datagrid--compact"
+        }
+    ],
+    "com.mendix.widget.web.datagrid.Datagrid": [
+        {
+            "name": "Sticky header",
+            "type": "Toggle",
+            "description": "Makes the header sticky while scrolling.",
+            "class": "m-datagrid2 m-datagrid2--sticky-header"
+        },
+        {
+            "name": "Data grid height",
+            "type": "Dropdown",
+            "description": "Changes the default view height (50vh) of the datagrid when sticky header is enabled.",
+            "options": [
+                {
+                    "name": "10vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--10vh"
+                },
+                {
+                    "name": "20vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--20vh"
+                },
+                {
+                    "name": "30vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--40vh"
+                },
+                {
+                    "name": "40vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--40vh"
+                },
+                {
+                    "name": "50vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--50vh"
+                },
+                {
+                    "name": "60vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--60vh"
+                },
+                {
+                    "name": "70vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--70vh"
+                },
+                {
+                    "name": "80vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--80vh"
+                },
+                {
+                    "name": "90vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--90vh"
+                },
+                {
+                    "name": "100vh",
+                    "class": "m-datagrid2 m-datagrid2--sticky-header m-datagrid2--100vh"
+                }
+            ]
+        },
+        {
+            "name": "Sticky columns",
+            "type": "Dropdown",
+            "description": "Makes the first or/and last column sticky while scrolling. NOTE: Please disable Resizing.",
+            "options": [
+                {
+                    "name": "Sticky first column",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column"
+                },
+                {
+                    "name": "Sticky last column",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column"
+                },
+                {
+                    "name": "Sticky first and last column",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column m-datagrid2--sticky-last-column"
+                }
+            ]
+        },
+        {
+            "name": "Display full content",
+            "type": "Dropdown",
+            "description": "Allows you to display the full content/text of a column. You can also limit the amount of content/text to a max number of lines.",
+            "options": [
+                {
+                    "name": "Full content (no limits)",
+                    "class": "m-datagrid2 m-datagrid2--full-content"
+                },
+                {
+                    "name": "1 line of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-1"
+                },
+                {
+                    "name": "2 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-2"
+                },
+                {
+                    "name": "3 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-3"
+                },
+                {
+                    "name": "4 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-4"
+                },
+                {
+                    "name": "5 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-5"
+                },
+                {
+                    "name": "6 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-6"
+                },
+                {
+                    "name": "7 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-7"
+                },
+                {
+                    "name": "8 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-8"
+                },
+                {
+                    "name": "9 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-9"
+                },
+                {
+                    "name": "10 lines of content/text",
+                    "class": "m-datagrid2 m-datagrid2--full-content m-datagrid2--line-clamp-10"
+                }
+            ]
+        },
+        {
+            "name": "Compact view",
+            "type": "Toggle",
+            "description": "Makes the grid compact.",
+            "class": "m-datagrid2 m-datagrid2--compact"
+        },
+        {
+            "name": "Column width",
+            "type": "Dropdown",
+            "description": "Gives each column a minimal width. ",
+            "options": [
+                {
+                    "name": "Smallest",
+                    "class": "m-datagrid2 m-datagrid2--column-size-smallest"
+                },
+                {
+                    "name": "Smaller",
+                    "class": "m-datagrid2 m-datagrid2--column-size-smaller"
+                },
+                {
+                    "name": "Small",
+                    "class": "m-datagrid2 m-datagrid2--column-size-small"
+                },
+                {
+                    "name": "Medium",
+                    "class": "m-datagrid2 m-datagrid2--column-size-medium"
+                },
+                {
+                    "name": "Large",
+                    "class": "m-datagrid2 m-datagrid2--column-size-large"
+                },
+                {
+                    "name": "Larger",
+                    "class": "m-datagrid2 m-datagrid2--column-size-larger"
+                },
+                {
+                    "name": "Largest",
+                    "class": "m-datagrid2 m-datagrid2--column-size-largest"
+                }
+            ]
+        },
+        {
+            "name": "Sticky first column width",
+            "type": "Dropdown",
+            "description": "Gives sticky first column a minimal width. This will overwrite 'Column Width' for the sticky columns.",
+            "options": [
+                {
+                    "name": "Smallest",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column-size-smallest"
+                },
+                {
+                    "name": "Smaller",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column-size-smaller"
+                },
+                {
+                    "name": "Small",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column-size-small"
+                },
+                {
+                    "name": "Medium",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column-size-medium"
+                },
+                {
+                    "name": "Large",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column-size-large"
+                },
+                {
+                    "name": "Larger",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column-size-larger"
+                },
+                {
+                    "name": "Largest",
+                    "class": "m-datagrid2 m-datagrid2--sticky-first-column-size-largest"
+                }
+            ]
+        },
+        {
+            "name": "Sticky last column width",
+            "type": "Dropdown",
+            "description": "Gives sticky last column a minimal width. This will overwrite 'Column Width' for the sticky columns.",
+            "options": [
+                {
+                    "name": "Smallest",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column-size-smallest"
+                },
+                {
+                    "name": "Smaller",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column-size-smaller"
+                },
+                {
+                    "name": "Small",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column-size-small"
+                },
+                {
+                    "name": "Medium",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column-size-medium"
+                },
+                {
+                    "name": "Large",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column-size-large"
+                },
+                {
+                    "name": "Larger",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column-size-larger"
+                },
+                {
+                    "name": "Largest",
+                    "class": "m-datagrid2 m-datagrid2--sticky-last-column-size-largest"
+                }
+            ]
+        }
+    ],
+    "com.clevr.widget.web.dynamicdatagrid.DynamicDataGrid": [
+        {
+            "name": "Sticky header",
+            "type": "Toggle",
+            "description": "Makes the header sticky while scrolling.",
+            "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header"
+        },
+        {
+            "name": "Data grid height",
+            "type": "Dropdown",
+            "description": "Changes the default view height (50vh) of the datagrid when sticky header is enabled.",
+            "options": [
+                {
+                    "name": "10vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--10vh"
+                },
+                {
+                    "name": "20vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--20vh"
+                },
+                {
+                    "name": "30vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--40vh"
+                },
+                {
+                    "name": "40vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--40vh"
+                },
+                {
+                    "name": "50vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--50vh"
+                },
+                {
+                    "name": "60vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--60vh"
+                },
+                {
+                    "name": "70vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--70vh"
+                },
+                {
+                    "name": "80vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--80vh"
+                },
+                {
+                    "name": "90vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--90vh"
+                },
+                {
+                    "name": "100vh",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-header m-dynamic-datagrid--100vh"
+                }
+            ]
+        },
+        {
+            "name": "Sticky columns",
+            "type": "Dropdown",
+            "description": "Makes the first or/and last column sticky while scrolling. NOTE: Please disable Resizing. For Sticky last column, please disable Hiding.",
+            "options": [
+                {
+                    "name": "Sticky first column",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column"
+                },
+                {
+                    "name": "Sticky last column",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column"
+                },
+                {
+                    "name": "Sticky first and last column",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column m-dynamic-datagrid--sticky-last-column"
+                }
+            ]
+        },
+        {
+            "name": "Display full content",
+            "type": "Dropdown",
+            "description": "Allows you to display the full content/text of a column. You can also limit the amount of content/text to a max number of lines.",
+            "options": [
+                {
+                    "name": "Full content (no limits)",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content"
+                },
+                {
+                    "name": "1 line of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-1"
+                },
+                {
+                    "name": "2 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-2"
+                },
+                {
+                    "name": "3 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-3"
+                },
+                {
+                    "name": "4 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-4"
+                },
+                {
+                    "name": "5 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-5"
+                },
+                {
+                    "name": "6 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-6"
+                },
+                {
+                    "name": "7 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-7"
+                },
+                {
+                    "name": "8 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-8"
+                },
+                {
+                    "name": "9 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-9"
+                },
+                {
+                    "name": "10 lines of content/text",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--full-content m-dynamic-datagrid--line-clamp-10"
+                }
+            ]
+        },
+        {
+            "name": "Compact view",
+            "type": "Toggle",
+            "description": "Makes the grid compact.",
+            "class": "m-dynamic-datagrid m-dynamic-datagrid--compact"
+        },
+        {
+            "name": "Column width",
+            "type": "Dropdown",
+            "description": "Gives each column a minimal width. ",
+            "options": [
+                {
+                    "name": "Smallest",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--column-size-smallest"
+                },
+                {
+                    "name": "Smaller",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--column-size-smaller"
+                },
+                {
+                    "name": "Small",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--column-size-small"
+                },
+                {
+                    "name": "Medium",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--column-size-medium"
+                },
+                {
+                    "name": "Large",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--column-size-large"
+                },
+                {
+                    "name": "Larger",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--column-size-larger"
+                },
+                {
+                    "name": "Largest",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--column-size-largest"
+                }
+            ]
+        },
+        {
+            "name": "Sticky first column width",
+            "type": "Dropdown",
+            "description": "Gives sticky first column a minimal width. This will overwrite 'Column Width' for the sticky columns.",
+            "options": [
+                {
+                    "name": "Smallest",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column-size-smallest"
+                },
+                {
+                    "name": "Smaller",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column-size-smaller"
+                },
+                {
+                    "name": "Small",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column-size-small"
+                },
+                {
+                    "name": "Medium",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column-size-medium"
+                },
+                {
+                    "name": "Large",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column-size-large"
+                },
+                {
+                    "name": "Larger",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column-size-larger"
+                },
+                {
+                    "name": "Largest",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-first-column-size-largest"
+                }
+            ]
+        },
+        {
+            "name": "Sticky last column width",
+            "type": "Dropdown",
+            "description": "Gives sticky last column a minimal width. This will overwrite 'Column Width' for the sticky columns.",
+            "options": [
+                {
+                    "name": "Smallest",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column-size-smallest"
+                },
+                {
+                    "name": "Smaller",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column-size-smaller"
+                },
+                {
+                    "name": "Small",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column-size-small"
+                },
+                {
+                    "name": "Medium",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column-size-medium"
+                },
+                {
+                    "name": "Large",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column-size-large"
+                },
+                {
+                    "name": "Larger",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column-size-larger"
+                },
+                {
+                    "name": "Largest",
+                    "class": "m-dynamic-datagrid m-dynamic-datagrid--sticky-last-column-size-largest"
+                }
+            ]
+        }
+    ]
+}

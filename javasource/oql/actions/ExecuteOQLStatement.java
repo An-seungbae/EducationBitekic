@@ -26,7 +26,6 @@ import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixIdentifier;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.meta.IMetaAssociation;
-import com.mendix.webui.CustomJavaAction;
 import oql.implementation.OQL;
 import com.mendix.systemwideinterfaces.core.UserAction;
 

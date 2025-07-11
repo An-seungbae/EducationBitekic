@@ -13,7 +13,6 @@ import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import com.mendix.systemwideinterfaces.core.IMendixObjectMember;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.webui.FeedbackHelper;
 import mxmodelreflection.DataParser;
 import mxmodelreflection.proxies.AttributeTypes;

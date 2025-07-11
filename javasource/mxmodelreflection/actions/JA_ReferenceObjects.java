@@ -10,7 +10,6 @@
 package mxmodelreflection.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import mxmodelreflection.proxies.MxObjectType;
 import java.util.stream.Collectors;

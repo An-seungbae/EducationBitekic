@@ -1,0 +1,334 @@
+/*
+    M-datagrid is designed to be an easy to access tool which will give the developer the option to add sticky/compact columns.
+    Please do not make change in this document. You may make changes in m-datagrid-variables.scss if you like.
+
+    Author: Maurits de Koning-Hewitt, The Orange Force
+*/
+
+.widget-dynamic-data-grid {
+    &.m-dynamic-datagrid {
+        .table {
+            width: inherit;
+            max-width: inherit;
+            overflow-x: auto;
+        }
+
+        .widget-datagrid-grid-head, .widget-datagrid-grid-body {
+            grid-template-columns: repeat(minmax(150px, 1fr)) !important;
+            width: inherit !important;
+            max-width: 100%;
+            overflow-x: auto;
+
+            .tr .th,
+            .tr .td {
+                min-width: $m-dynamic-datagrid-min-column-width;
+            }
+        }
+
+        // Makes the First column sticky
+        &--sticky-first-column {
+
+            .tr .th:nth-child(1),
+            .tr .td:nth-child(1) {
+                background-color: $m-dynamic-datagrid-bg;
+                z-index: 2;
+                position: sticky;
+                left: 0;
+
+                &::after {
+                    position: absolute;
+                    top: 0px;
+                    width: 4px;
+                    height: 100%;
+                    content: '';
+                    right: -2px;
+                    background: linear-gradient(to right, $m-dynamic-datagrid-shadow-start, $m-dynamic-datagrid-shadow-end);
+                }
+            }
+        }
+
+        // Makes the last column sticky
+        &--sticky-last-column {
+
+            .tr .th:nth-last-child(1),
+            .tr .td:nth-last-child(1) {
+                background: $m-dynamic-datagrid-bg;
+                z-index: 2;
+                position: sticky;
+                right: 0;
+
+                &::after {
+                    position: absolute;
+                    top: 0px;
+                    width: 4px;
+                    height: 100%;
+                    content: '';
+                    left: -2px;
+                    background: linear-gradient(to left, $m-dynamic-datagrid-shadow-start, $m-dynamic-datagrid-shadow-end);
+                }
+            }
+        }
+
+        // Makes the header sticky
+        &--sticky-header {
+            .table.widget-datagrid-grid {
+                max-height: 50vh;
+            }
+
+            .table .widget-datagrid-grid-head .tr .th {
+                position: sticky;
+            }
+
+            .table .widget-datagrid-grid-head .tr:nth-child(1) {
+                .th {
+                    z-index: 4;
+                    border-bottom: 1px solid $border-color-default;
+                    margin-bottom: -1px;
+                }
+
+                .th:nth-child(1),
+                .th:nth-last-child(1 of :not(.column-selector)) {
+                    z-index: 5 !important;
+                }
+            }
+        }
+
+        // Sets the datagrid height
+        @for $i from 1 through 10 {
+            &--#{$i * 10}vh .table.widget-datagrid-grid{
+                max-height: #{$i * 10}vh;
+            }
+        }
+
+        // Instead of minimizing the content it will display the full content
+        &--full-content {
+
+            .tr .th span,
+            .tr .td span {
+                display: -webkit-box;
+                text-align: left;
+                white-space: unset;
+                word-break: break-word;
+                -webkit-line-clamp: unset;
+                -webkit-box-orient: vertical;
+                text-overflow: ellipsis;
+            }
+        }
+
+        // A small loop for the line clamp option. Goes from 1 to 10.
+        @for $i from 1 through 10 {
+            &--line-clamp-#{$i} {
+
+                .tr .th,
+                .tr .td {
+                    position: relative;
+                    display: -webkit-box;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    padding: 16px;
+                    -webkit-line-clamp: $i;
+                    word-break: break-word;
+                    background: $m-dynamic-datagrid-bg;
+
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        display: block;
+                        height: 16px;
+                        width: calc(100% - 2px); // Outline color compensation
+                        bottom: 0px;
+                        left: 1px;
+                        background-color: inherit;
+                    }
+                }
+            }
+        }
+
+        &--compact {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-dynamic-datagrid-compact-min-column-width;
+                font-size: $m-dynamic-datagrid-compact-font-size;
+                padding: 2px 4px;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+        // Changes all columns width
+        &--column-size-smallest.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td{
+                min-width: $m-dynamic-datagrid-min-column-width-smallest;
+            }
+        }
+
+        &--column-size-smaller.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-dynamic-datagrid-min-column-width-smaller;
+            }
+        }
+
+        &--column-size-small.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-dynamic-datagrid-min-column-width-small;
+            }
+        }
+
+        &--column-size-medium.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-dynamic-datagrid-min-column-width;
+            }
+        }
+
+        &--column-size-large.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-dynamic-datagrid-min-column-width-large;
+            }
+        }
+
+        &--column-size-larger.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-dynamic-datagrid-min-column-width-larger;
+            }
+        }
+
+        &--column-size-largest.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th,
+            .table .widget-datagrid-grid-body .tr .td {
+                min-width: $m-dynamic-datagrid-min-column-width-largest;
+            }
+        }
+
+        // Change sticky columns width
+
+        // First column width
+        &--sticky-first-column-size-smallest.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-smallest;
+            }
+        }
+
+        &--sticky-first-column-size-smaller.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-smaller;
+            }
+        }
+
+        &--sticky-first-column-size-small.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-small;
+            }
+        }
+
+        &--sticky-first-column-size-medium.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width;
+            }
+        }
+
+        &--sticky-first-column-size-large.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-large;
+            }
+        }
+
+        &--sticky-first-column-size-larger.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-larger;
+            }
+        }
+
+        &--sticky-first-column-size-largest.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-largest;
+            }
+        }
+
+        // Last column width
+        &--sticky-last-column-size-smallest.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-smallest;
+            }
+        }
+
+        &--sticky-last-column-size-smaller.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-smaller;
+            }
+        }
+
+        &--sticky-last-column-size-small.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-small;
+            }
+        }
+
+        &--sticky-last-column-size-medium.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width;
+            }
+        }
+
+        &--sticky-last-column-size-large.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-large;
+            }
+        }
+
+        &--sticky-last-column-size-larger.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-larger;
+            }
+        }
+
+        &--sticky-last-column-size-largest.m-dynamic-datagrid {
+
+            .table .widget-datagrid-grid-head .tr .th:nth-last-child(1),
+            .table .widget-datagrid-grid-body .tr .td:nth-last-child(1) {
+                min-width: $m-dynamic-datagrid-min-column-width-largest;
+            }
+        }
+    }
+}

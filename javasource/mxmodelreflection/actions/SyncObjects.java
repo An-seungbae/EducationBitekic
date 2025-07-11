@@ -17,7 +17,6 @@ import mxmodelreflection.proxies.Module;
 import mxmodelreflection.proxies.MxObjectMember;
 import mxmodelreflection.proxies.MxObjectType;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.webui.FeedbackHelper;
 import com.mendix.systemwideinterfaces.core.UserAction;
 

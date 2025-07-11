@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "querystringify": "^2.2.0",
+    "requires-port": "^1.0.0",
+    "url-parse": "^1.5.10"
+  }
+}

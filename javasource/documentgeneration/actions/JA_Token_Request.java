@@ -11,7 +11,6 @@ package documentgeneration.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
-import com.mendix.webui.CustomJavaAction;
 import documentgeneration.implementation.TokenManager;
 import com.mendix.systemwideinterfaces.core.UserAction;
 

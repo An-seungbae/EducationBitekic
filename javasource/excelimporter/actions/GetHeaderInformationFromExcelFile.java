@@ -12,7 +12,6 @@ package excelimporter.actions;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 import excelimporter.reader.ExcelImporter;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.mendix.systemwideinterfaces.core.UserAction;
 
 /**
