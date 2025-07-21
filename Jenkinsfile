@@ -11,7 +11,7 @@ pipeline {
         MPR_FILE = 'EducationBitekic.mpr'
         // 생성될 빌드 패키지 파일 이름
         MDA_FILE = 'EducationBitekic.mda'
-		JAVA_HOME = 'C:\\Java\\jdk-17'    
+		JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21'    
 		}
 
     stages {
