@@ -5,9 +5,14 @@ pipeline {
         MENDIX_DIR = 'C:\\Program Files\\Mendix\\10.24.0.73019\\modeler'
         MPR_FILE = 'EducationBitekic.mpr'
         MDA_FILE = 'EducationBitekic.mda'
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21'
+        JAVA_HOME = 'C:\\Java\\jdk-11.0.0.2'
     }
-
+	stage('Clean Lock') {
+		steps {
+			echo "Deleting .mpr.lock file if it exists..."
+			bat 'if exist "${MPR_FILE}.lock" del "${MPR_FILE}.lock"'
+		}
+	}
     stages {
         stage('Checkout') {
             steps {
