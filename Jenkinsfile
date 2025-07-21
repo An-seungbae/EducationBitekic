@@ -5,7 +5,7 @@ pipeline {
         MENDIX_DIR = 'C:\\Program Files\\Mendix\\10.24.0.73019\\modeler'
         MPR_FILE = 'EducationBitekic.mpr'
         MDA_FILE = 'EducationBitekic.mda'
-        JAVA_HOME = 'C:\\Program Files\\Java\\jdk-21'
+        JAVA_HOME = 'C:\\Java\\jdk-11.0.0.2'
     }
 
     stages {
@@ -22,7 +22,7 @@ pipeline {
                 bat """
                     "${env.MENDIX_DIR}\\mxbuild.exe" "${env.MPR_FILE}" 
                     --java-home "${env.JAVA_HOME}" 
-                    --target=package ^
+                    --target=package 
                     --output "${env.MDA_FILE}"
                 """
                 echo "Build completed: ${env.MDA_FILE} created."
