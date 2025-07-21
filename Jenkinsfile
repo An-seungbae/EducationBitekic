@@ -3,8 +3,8 @@ pipeline {
 
     environment {
         MENDIX_DIR = 'C:\\Program Files\\Mendix\\10.24.0.73019\\modeler'
-        MPR_FILE = 'C:\\Mendix\\EducationBitekic\\EducationBitekic.mpr'
-        MDA_FILE = 'C:\\Mendix\\EducationBitekic\\EducationBitekic.mda'
+        MPR_FILE = 'EducationBitekic.mpr'
+        MDA_FILE = 'EducationBitekic.mda' // Mendix 빌드 아티팩트 (MDA) 파일
         JAVA_HOME = 'C:\\Java\\jdk-17'
     }
 
