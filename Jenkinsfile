@@ -1,7 +1,14 @@
 // Jenkinsfile
 pipeline {
     // Mendix Studio Pro가 설치된 Windows Agent를 사용하도록 레이블 지정
-    agent { label 'mendix-builder' }
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+    }
 
     // 환경 변수 설정
     environment {
