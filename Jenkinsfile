@@ -7,12 +7,7 @@ pipeline {
         MDA_FILE = 'EducationBitekic.mda'
         JAVA_HOME = 'C:\\Java\\jdk-11.0.0.2'
     }
-	stage('Clean Lock') {
-		steps {
-			echo "Deleting .mpr.lock file if it exists..."
-			bat 'if exist "${MPR_FILE}.lock" del "${MPR_FILE}.lock"'
-		}
-	}
+
     stages {
         stage('Checkout') {
             steps {
@@ -20,7 +15,12 @@ pipeline {
                 checkout scm
             }
         }
-
+	stage('Clean Lock') {
+		steps {
+			echo "Deleting .mpr.lock file if it exists..."
+			bat 'if exist "${MPR_FILE}.lock" del "${MPR_FILE}.lock"'
+		}
+	}
         stage('Build Mendix App') {
             steps {
                 echo "Starting Mendix build for ${env.MPR_FILE}..."
