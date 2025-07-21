@@ -11,7 +11,8 @@ pipeline {
         MPR_FILE = 'EducationBitekic.mpr'
         // 생성될 빌드 패키지 파일 이름
         MDA_FILE = 'EducationBitekic.mda'
-    }
+		JAVA_HOME = 'C:\\Java\\jdk-17'    
+		}
 
     stages {
         // 1. Git에서 소스 코드 가져오기
@@ -28,7 +29,7 @@ pipeline {
                 echo "Starting Mendix build for ${env.MPR_FILE}..."
                 // Windows Agent에서 실행되므로 'bat' 사용
                 bat """
-                    "${env.MENDIX_DIR}\\mxbuild.exe" --target=package --output="${env.MDA_FILE}" "${env.MPR_FILE}"
+                    "${env.MENDIX_DIR}\\mxbuild.exe" --target=package --output="${env.MDA_FILE}" "${env.MPR_FILE}" "${env.JAVA_HOME}"
                 """
                 echo "Build completed: ${env.MDA_FILE} created."
             }
