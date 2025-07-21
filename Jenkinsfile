@@ -6,7 +6,7 @@ pipeline {
     // 환경 변수 설정
     environment {
         // Mendix 설치 경로 (Agent 환경에 맞게 수정)
-        MENDIX_DIR = 'C:\\Program Files\\Mendix\\10.24.0.73019' 
+        MENDIX_DIR = 'C:\\Program Files\\Mendix\\10.24.0.73019\\modeler' 
         // Mendix 프로젝트 파일 이름 (.mpr 파일)
         MPR_FILE = 'EducationBitekic.mpr'
         // 생성될 빌드 패키지 파일 이름
