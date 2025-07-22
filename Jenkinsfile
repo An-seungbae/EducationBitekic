@@ -5,7 +5,7 @@ pipeline {
         MENDIX_DIR = 'C:\\Program Files\\Mendix\\10.24.0.73019\\modeler'
         MPR_FILE = 'EducationBitekic.mpr'
         MDA_FILE = 'EducationBitekic.mda' // Mendix 빌드 아티팩트 (MDA) 파일
-        JAVA_HOME = 'C:\\Java\\jdk-17'
+        JAVA_HOME = 'C:\\Java\\jdk-21.0.7.6-hotspot'
     }
 
     stages {
