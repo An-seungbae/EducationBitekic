@@ -18,19 +18,15 @@ pipeline {
         stage('Clean Lock') {
             steps {
                 echo "Deleting .mpr.lock file if it exists..."
-                // Windows 환경에서 파일 경로에 공백이 있을 수 있으므로 따옴표로 감싸는 것이 안전합니다.
                 bat 'if exist "${MPR_FILE}.lock" del "${MPR_FILE}.lock"'
             }
         }
         stage('Build Mendix App') {
             steps {
                 echo "Starting Mendix build for ${env.MPR_FILE}..."
+                // mxbuild 명령어를 한 줄로 연결하고, 불필요한 주석을 제거했습니다.
                 bat """
-                    "${env.MENDIX_DIR}\\mxbuild.exe" "${env.MPR_FILE}" ^
-                    --java-home "${env.JAVA_HOME}" ^
-					--java-exe-path "${env.JAVA_HOME}\\bin\\java.exe" ^ // 이 줄이 추가되었습니다.
-                    --target=package ^
-                    --output "${env.MDA_FILE}"
+                    "${env.MENDIX_DIR}\\mxbuild.exe" "${env.MPR_FILE}" --java-home "${env.JAVA_HOME}" --java-exe-path "${env.JAVA_HOME}\\bin\\java.exe" --target=package --output "${env.MDA_FILE}"
                 """
                 echo "Build completed: ${env.MDA_FILE} created."
             }
