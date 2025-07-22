@@ -6,7 +6,7 @@ pipeline {
         MPR_FILE = 'EducationBitekic.mpr'
         MDA_FILE = 'EducationBitekic.mda'
         WAR_FILE = 'EducationBitekic.war' // WAR 파일 이름 (Mendix Studio Pro에서 내보낸 이름과 일치해야 함)
-        JAVA_HOME = 'C:\\Java\\jdk-21.0.7.6-hotspot' // Mendix 버전과 호환되는 JDK 경로
+        JAVA_HOME = 'C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.7.6-hotspot' // Mendix 버전과 호환되는 JDK 경로
         TOMCAT_WEBAPPS_DIR = 'C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps' // Tomcat webapps 경로
         TOMCAT_BIN_DIR = 'C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\bin' // Tomcat bin 경로
         // Mendix 런타임 설정 파일 경로 (Tomcat 서버에 미리 생성되어 있어야 함)
