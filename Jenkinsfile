@@ -36,7 +36,21 @@ pipeline {
                 echo "Build completed: ${env.MDA_FILE} created."
             }
         }
+        stage('Package as WAR') {
+            steps {
+                bat """
+                mkdir war\\WEB-INF\\classes
+                xcopy /E /I /Y build\\model war\\WEB-INF\\classes
+                jar -cvf EducationBitekic.war -C war .
+                """
+            }
+        }
 
+        stage('Deploy to Tomcat') {
+            steps {
+                bat 'copy "EducationBitekic.war" "C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\"'
+            }
+        }
         // 이 단계는 Mendix Studio Pro에서 수동으로 WAR 파일을 생성했거나,
         // 별도의 스크립트/도구로 WAR 파일이 생성되어 Jenkins 작업 공간에 존재한다고 가정합니다.
         // 만약 Studio Pro에서 WAR 파일을 내보내는 것을 Jenkins에서 직접 자동화하고 싶다면,
